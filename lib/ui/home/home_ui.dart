@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// --- Notifier で状態管理 ---
-class Counter extends Notifier<int> {
-  @override
-  int build() => 0; // 初期値
-
-  void increment() => state++;
-}
-
-// --- Provider 定義 ---
-final counterProvider = NotifierProvider<Counter, int>(Counter.new);
+import 'count_provider.dart';
 
 class HomeUI extends ConsumerWidget {
   const HomeUI({super.key});
@@ -22,7 +12,7 @@ class HomeUI extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("無題"),
+        title: const Text("無題"),
       ),
       body: Center(
         child: Column(

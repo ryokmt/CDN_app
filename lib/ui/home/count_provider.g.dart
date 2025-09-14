@@ -12,7 +12,7 @@ part of 'count_provider.dart';
 @ProviderFor(Counter)
 const counterProvider = CounterProvider._();
 
-final class CounterProvider extends $NotifierProvider<Counter, int> {
+final class CounterProvider extends $NotifierProvider<Counter, CounterState> {
   const CounterProvider._()
     : super(
         from: null,
@@ -32,28 +32,28 @@ final class CounterProvider extends $NotifierProvider<Counter, int> {
   Counter create() => Counter();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(int value) {
+  Override overrideWithValue(CounterState value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<int>(value),
+      providerOverride: $SyncValueProvider<CounterState>(value),
     );
   }
 }
 
-String _$counterHash() => r'4243b34530f53accfd9014a9f0e316fe304ada3e';
+String _$counterHash() => r'dbbd9648afbd2caff33231b8387d6ae9c9118ff0';
 
-abstract class _$Counter extends $Notifier<int> {
-  int build();
+abstract class _$Counter extends $Notifier<CounterState> {
+  CounterState build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<int, int>;
+    final ref = this.ref as $Ref<CounterState, CounterState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<int, int>,
-              int,
+              AnyNotifier<CounterState, CounterState>,
+              CounterState,
               Object?,
               Object?
             >;

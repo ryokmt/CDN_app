@@ -7,7 +7,7 @@ class HomeUI extends ConsumerWidget {
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counter = ref.watch(counterProvider);
+    final counterState = ref.watch(counterProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +20,7 @@ class HomeUI extends ConsumerWidget {
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Text(
-              '$counter',
+              '${counterState.count}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
